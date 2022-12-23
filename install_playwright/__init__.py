@@ -33,6 +33,4 @@ def install(
 
     proc = subprocess.run(args, env=get_driver_env(), capture_output=True, text=True)
 
-    return (
-        proc.returncode == 0 and "already installed on the system!" not in proc.stdout
-    )
+    return proc.returncode == 0
