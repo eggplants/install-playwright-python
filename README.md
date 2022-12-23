@@ -22,7 +22,7 @@
   https://github.com/eggplants/install-playwright-python/actions/workflows/test.yml
 )
 
-Execute `playwright install` from Python.
+Execute [`playwright install`](https://playwright.dev/python/docs/cli) from Python.
 
 ```python
 from install_playwright import install
