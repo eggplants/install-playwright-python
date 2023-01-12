@@ -1,25 +1,25 @@
 # install-playwright-python
 
 [![PyPI version](
-  https://badge.fury.io/py/install-playwright.svg
+  <https://badge.fury.io/py/install-playwright.svg>
   )](
-  https://badge.fury.io/py/install-playwright
+  <https://badge.fury.io/py/install-playwright>
 ) [![Maintainability](
-  https://api.codeclimate.com/v1/badges/75293ef4c40e3382cfe8/maintainability
+  <https://api.codeclimate.com/v1/badges/75293ef4c40e3382cfe8/maintainability>
   )](
-  https://codeclimate.com/github/eggplants/install-playwright-python/maintainability
+  <https://codeclimate.com/github/eggplants/install-playwright-python/maintainability>
 ) [![pre-commit.ci status](
-  https://results.pre-commit.ci/badge/github/eggplants/install-playwright-python/master.svg
+  <https://results.pre-commit.ci/badge/github/eggplants/install-playwright-python/master.svg>
   )](
-  https://results.pre-commit.ci/latest/github/eggplants/install-playwright-python/master
+  <https://results.pre-commit.ci/latest/github/eggplants/install-playwright-python/master>
 ) [![Test Coverage](
-  https://api.codeclimate.com/v1/badges/75293ef4c40e3382cfe8/test_coverage
+  <https://api.codeclimate.com/v1/badges/75293ef4c40e3382cfe8/test_coverage>
   )](
-  https://codeclimate.com/github/eggplants/install-playwright-python/test_coverage
+  <https://codeclimate.com/github/eggplants/install-playwright-python/test_coverage>
 ) [![Test](
-  https://github.com/eggplants/install-playwright-python/actions/workflows/test.yml/badge.svg
+  <https://github.com/eggplants/install-playwright-python/actions/workflows/test.yml/badge.svg>
   )](
-  https://github.com/eggplants/install-playwright-python/actions/workflows/test.yml
+  <https://github.com/eggplants/install-playwright-python/actions/workflows/test.yml>
 )
 
 Execute [`playwright install`](https://playwright.dev/python/docs/cli) from Python.
