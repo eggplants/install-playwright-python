@@ -39,7 +39,7 @@ jobs:
       run: pytest tests/ --cov-report=term
     - name: Test & publish code coverage
       if: runner.os != 'Windows'
-      uses: paambaati/codeclimate-action@v4.0.0
+      uses: paambaati/codeclimate-action@v5.0.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:
