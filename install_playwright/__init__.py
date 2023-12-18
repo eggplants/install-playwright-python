@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 import subprocess
+from typing import TYPE_CHECKING
 
 from playwright._impl._driver import compute_driver_executable, get_driver_env
-from playwright.async_api import BrowserType as AsyncBrowserType
-from playwright.sync_api import BrowserType as SyncBrowserType
+
+if TYPE_CHECKING:
+    from playwright.async_api import BrowserType as AsyncBrowserType
+    from playwright.sync_api import BrowserType as SyncBrowserType
 
 __version__ = "0.0.1"
 __all__ = ["install"]
@@ -31,6 +34,6 @@ def install(
     if with_deps:
         args.append("--with-deps")
 
-    proc = subprocess.run(args, env=get_driver_env(), capture_output=True, text=True)
+    proc = subprocess.run(args, env=get_driver_env(), capture_output=True, text=True, check=False)  # noqa: S603
 
     return proc.returncode == 0
