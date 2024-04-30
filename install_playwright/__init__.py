@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from playwright.async_api import BrowserType as AsyncBrowserType
     from playwright.sync_api import BrowserType as SyncBrowserType
 
-__version__ = "0.0.1"
+__version__ = "0.1.0"
 __all__ = ["install"]
 
 
