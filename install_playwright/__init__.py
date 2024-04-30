@@ -27,9 +27,8 @@ def install(
     Returns:
         bool: succeeded or failed
     """
-    driver_executable = str(compute_driver_executable())
-
-    args = [driver_executable, "install", browser_type.name]
+    driver_executable, driver_cli = compute_driver_executable()
+    args = [driver_executable, driver_cli, "install", browser_type.name]
 
     if with_deps:
         args.append("--with-deps")
