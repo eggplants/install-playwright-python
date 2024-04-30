@@ -55,6 +55,9 @@ max-complexity = 18
   "S101", # Use of assert detected
 ]
 
+[tool.coverage]
+report.exclude_lines = ["if TYPE_CHECKING:"]
+
 [tool.mypy]
 pretty = true
 python_version = "3.9"
@@ -72,9 +75,6 @@ report_errors = true
 precise_return = true
 protocols = true
 strict_import = true
-
-[tool.coverage]
-report.exclude_lines = ["if TYPE_CHECKING:"]
 
 [tool.taskipy.tasks]
 test = "pytest --cov=install_playwright --cov-report=term"
