@@ -73,6 +73,9 @@ precise_return = true
 protocols = true
 strict_import = true
 
+[tool.coverage]
+report.exclude_lines = ["if TYPE_CHECKING:"]
+
 [tool.taskipy.tasks]
 test = "pytest --cov=install_playwright --cov-report=term"
 "test:ci" = "task test --cov-report=xml:cov.xml"
