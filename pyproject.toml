@@ -4,9 +4,10 @@ requires = [
   "poetry-core",
 ]
 
-[tool]
 [tool.poetry]
-authors = ["eggplants <w10776e8w@yahoo.co.jp>"]
+authors = [
+  "eggplants <w10776e8w@yahoo.co.jp>",
+]
 classifiers = [
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python",
@@ -15,9 +16,15 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
 ]
 description = "Execute `playwright install` from Python"
-keywords = ["playwright", "install", "browser"]
+keywords = [
+  "playwright",
+  "install",
+  "browser",
+]
 name = "install_playwright"
-packages = [{include = "install_playwright"}]
+packages = [
+  { include = "install_playwright" },
+]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/eggplants/install-playwright-python"
@@ -36,27 +43,33 @@ pytest-cov = ">=4.1,<6.0"
 
 [tool.black]
 line-length = 120
-target-version = ['py39']
+target-version = [
+  'py39',
+]
 
 [tool.ruff]
-select = ["ALL"]
-ignore = ["D", "ANN101"]
 line-length = 120
 
-[tool.ruff.mccabe]
-max-complexity = 18
-
-[tool.ruff.per-file-ignores]
-"main.py" = [
+select = [
+  "ALL",
+]
+ignore = [
+  "D",
+  "ANN101",
+]
+mccabe.max-complexity = 18
+per-file-ignores."main.py" = [
   "T201", # `print` found
 ]
-"tests/*test_*.py" = [
-  "INP001",  # File tests/test_*.py is part of an implicit namespace package. Add an __init__.py.
-  "S101", # Use of assert detected
+per-file-ignores."tests/*test_*.py" = [
+  "INP001", # File tests/test_*.py is part of an implicit namespace package. Add an __init__.py.
+  "S101",   # Use of assert detected
 ]
 
 [tool.coverage]
-report.exclude_lines = ["if TYPE_CHECKING:"]
+report.exclude_lines = [
+  "if TYPE_CHECKING:",
+]
 
 [tool.mypy]
 pretty = true
@@ -67,6 +80,8 @@ strict = true
 [tool.pyright]
 pythonVersion = "3.9"
 typeCheckingMode = "strict"
+
+[tool]
 
 [tool.pytype]
 python_version = '3.10'
