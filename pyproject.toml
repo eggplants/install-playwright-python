@@ -35,7 +35,7 @@ python = ">=3.8,<4"
 playwright = "^1.9"
 
 [tool.poetry.group.dev.dependencies]
-mypy = ">=0.991,<1.12"
+mypy = ">=0.991,<1.14"
 pre-commit = ">=2.20,<4.0"
 taskipy = "^1.10.3"
 pytest = ">=7.4.3,<9.0.0"
