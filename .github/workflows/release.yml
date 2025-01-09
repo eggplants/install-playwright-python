@@ -9,7 +9,7 @@ on:
     - v*
 env:
   PYTHON_VERSION: '3.11'
-  PROJECT_NAME: getjump
+  PROJECT_NAME: install-playwright-python
 
 jobs:
   release:
