@@ -1,38 +1,47 @@
 [build-system]
 build-backend = "poetry.core.masonry.api"
 requires = [
-  "poetry-core",
+  "poetry-core>=2",
 ]
 
-[tool.poetry]
-authors = [
-  "eggplants <w10776e8w@yahoo.co.jp>",
+[project]
+name = "install-playwright"
+version = "0.1.0"
+description = "Execute `playwright install` from Python"
+readme = "README.md"
+keywords = [
+  "browser",
+  "install",
+  "playwright",
 ]
+license = { text = "MIT" }
+authors = [
+  { name = "eggplants", email = "w10776e8w@yahoo.co.jp" },
+]
+requires-python = ">=3.9,<4"
 classifiers = [
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python",
-  "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: Implementation :: CPython",
+  "Typing :: Typed",
 ]
-description = "Execute `playwright install` from Python"
-keywords = [
-  "playwright",
-  "install",
-  "browser",
+dependencies = [
+  "playwright>=1.49.1,<2",
 ]
-name = "install_playwright"
+
+urls.Repository = "https://github.com/eggplants/install-playwright-python"
+
+[tool.poetry]
+requires-poetry = ">=2.0"
 packages = [
   { include = "install_playwright" },
 ]
-license = "MIT"
-readme = "README.md"
-repository = "https://github.com/eggplants/install-playwright-python"
-version = "0.1.0"
-
-[tool.poetry.dependencies]
-python = ">=3.8,<4"
-playwright = "^1.9"
 
 [tool.poetry.group.dev.dependencies]
 mypy = ">=0.991,<1.15"
@@ -40,6 +49,9 @@ pre-commit = ">=2.20,<4.0"
 taskipy = "^1.10.3"
 pytest = ">=7.4.3,<9.0.0"
 pytest-cov = ">=4.1,<6.0"
+
+[tool.poetry.requires-plugins]
+poetry-plugin-shell = ">=1.0"
 
 [tool.black]
 line-length = 120
@@ -80,8 +92,6 @@ strict = true
 [tool.pyright]
 pythonVersion = "3.9"
 typeCheckingMode = "strict"
-
-[tool]
 
 [tool.pytype]
 python_version = '3.10'
