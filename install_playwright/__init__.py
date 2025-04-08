@@ -1,5 +1,8 @@
+""".. include:: ../README.md"""  # noqa: D415
+
 from __future__ import annotations
 
+import importlib.metadata
 import subprocess
 from typing import TYPE_CHECKING
 
@@ -9,7 +12,12 @@ if TYPE_CHECKING:
     from playwright.async_api import BrowserType as AsyncBrowserType
     from playwright.sync_api import BrowserType as SyncBrowserType
 
-__version__ = "0.1.0"
+try:
+    __version__ = importlib.metadata.version(__name__)
+except importlib.metadata.PackageNotFoundError:
+    __version__ = "0.0.0"
+
+
 __all__ = ["install"]
 
 
@@ -18,7 +26,7 @@ def install(
     *,
     with_deps: bool = False,
 ) -> bool:
-    """install playwright and deps if needed
+    """Install playwright and deps if needed.
 
     Args:
         browser_type (SyncBrowserType | AsyncBrowserType): `BrowserType` object. Example: `p.chrome`
@@ -33,6 +41,12 @@ def install(
     if with_deps:
         args.append("--with-deps")
 
-    proc = subprocess.run(args, env=get_driver_env(), capture_output=True, text=True, check=False)  # noqa: S603
+    proc = subprocess.run(  # noqa: S603
+        args,
+        env=get_driver_env(),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
 
     return proc.returncode == 0

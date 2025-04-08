@@ -1,12 +1,9 @@
 [build-system]
-build-backend = "poetry.core.masonry.api"
-requires = [
-  "poetry-core>=2",
-]
+build-backend = "hatchling.build"
+requires = [ "hatchling", "uv-dynamic-versioning" ]
 
 [project]
 name = "install-playwright"
-version = "0.1.0"
 description = "Execute `playwright install` from Python"
 readme = "README.md"
 keywords = [
@@ -15,9 +12,7 @@ keywords = [
   "playwright",
 ]
 license = { text = "MIT" }
-authors = [
-  { name = "eggplants", email = "w10776e8w@yahoo.co.jp" },
-]
+authors = [ { name = "eggplants", email = "w10776e8w@yahoo.co.jp" } ]
 requires-python = ">=3.9,<4"
 classifiers = [
   "License :: OSI Approved :: MIT License",
@@ -31,52 +26,48 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Typing :: Typed",
 ]
-dependencies = [
-  "playwright>=1.49.1,<2",
-]
+dynamic = [ "version" ]
+dependencies = [ "playwright>=1.49.1,<2" ]
 
 urls.Repository = "https://github.com/eggplants/install-playwright-python"
 
-[tool.poetry]
-requires-poetry = ">=2.0"
-packages = [
-  { include = "install_playwright" },
+[dependency-groups]
+dev = [
+  "mypy>=0.991,<1.15",
+  "pre-commit>=2.20,<4",
+  "pytest>=7.4.3,<9",
+  "pytest-cov>=4.1,<6",
+  "taskipy>=1.10.3,<2",
 ]
+docs = [ "pdoc" ]
 
-[tool.poetry.group.dev.dependencies]
-mypy = ">=0.991,<1.15"
-pre-commit = ">=2.20,<4.0"
-taskipy = "^1.10.3"
-pytest = ">=7.4.3,<9.0.0"
-pytest-cov = ">=4.1,<6.0"
+[tool.hatch.version]
+# tool.hatch.version.source is not listed in official schema.
+# https://github.com/ninoseki/uv-dynamic-versioning/issues/21
+source = "uv-dynamic-versioning"
 
-[tool.poetry.requires-plugins]
-poetry-plugin-shell = ">=1.0"
+[tool.hatch.build.targets.sdist]
+include = [ "install_playwright" ]
 
-[tool.black]
-line-length = 120
-target-version = [
-  'py39',
-]
+[tool.hatch.build.targets.wheel]
+include = [ "install_playwright" ]
 
 [tool.ruff]
 line-length = 120
-
-select = [
+format.indent-style = "space"
+format.quote-style = "double"
+lint.select = [
   "ALL",
 ]
-ignore = [
-  "D",
-  "ANN101",
-]
-mccabe.max-complexity = 18
-per-file-ignores."main.py" = [
+lint.per-file-ignores."main.py" = [
   "T201", # `print` found
 ]
-per-file-ignores."tests/*test_*.py" = [
-  "INP001", # File tests/test_*.py is part of an implicit namespace package. Add an __init__.py.
-  "S101",   # Use of assert detected
+lint.per-file-ignores."tests/*.py" = [
+  "D",
+  "S101", # Use of assert detected
 ]
+
+lint.pydocstyle.convention = "google"
 
 [tool.coverage]
 report.exclude_lines = [
@@ -93,6 +84,17 @@ strict = true
 pythonVersion = "3.9"
 typeCheckingMode = "strict"
 
+[tool.uv]
+default-groups = [
+  "dev",
+  "docs",
+]
+
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "semver"
+fallback-version = "0.0.0"
+
 [tool.pytype]
 python_version = '3.10'
 jobs = '4'
@@ -106,3 +108,4 @@ test = "pytest --cov=install_playwright --cov-report=term"
 "test:ci" = "task test --cov-report=xml:cov.xml"
 lint = "pre-commit run -a"
 profile = "python -m cProfile"
+gendoc = "pdoc install_playwright -o ./docs --docformat google"

@@ -5,17 +5,17 @@
   )](
   <https://badge.fury.io/py/install-playwright>
 ) [![Maintainability](
-  <https://api.codeclimate.com/v1/badges/75293ef4c40e3382cfe8/maintainability>
+  <https://qlty.sh/badges/5fcd7b4f-782d-4b27-99ef-4f5c6eae678b/maintainability.svg>
   )](
-  <https://codeclimate.com/github/eggplants/install-playwright-python/maintainability>
+  <https://qlty.sh/gh/eggplants/projects/install-playwright-python>
 ) [![pre-commit.ci status](
   <https://results.pre-commit.ci/badge/github/eggplants/install-playwright-python/master.svg>
   )](
   <https://results.pre-commit.ci/latest/github/eggplants/install-playwright-python/master>
-) [![Test Coverage](
-  <https://api.codeclimate.com/v1/badges/75293ef4c40e3382cfe8/test_coverage>
+) [![Maintainability](
+  <https://qlty.sh/badges/5fcd7b4f-782d-4b27-99ef-4f5c6eae678b/maintainability.svg>
   )](
-  <https://codeclimate.com/github/eggplants/install-playwright-python/test_coverage>
+  <https://qlty.sh/gh/eggplants/projects/install-playwright-python>
 ) [![Test](
   <https://github.com/eggplants/install-playwright-python/actions/workflows/test.yml/badge.svg>
   )](
