@@ -32,8 +32,8 @@ from install_playwright import install
 from playwright.sync_api import sync_playwright
 
 with sync_playwright() as p:
-    install(p.chrome)
-    browser = p.chrome.launch()
+    install(p.chromium)
+    browser = p.chromium.launch()
     # ...
 ```
 
@@ -43,8 +43,8 @@ from playwright.async_api import async_playwright
 
 async def main():
     async with async_playwright() as p:
-        install(p.chrome)
-        browser = await p.chrome.launch()
+        install(p.chromium)
+        browser = await p.chromium.launch()
         # ...
 ```
 
