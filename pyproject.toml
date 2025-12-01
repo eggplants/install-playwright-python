@@ -33,10 +33,10 @@ urls.Repository = "https://github.com/eggplants/install-playwright-python"
 
 [dependency-groups]
 dev = [
-  "mypy>=0.991,<1.15",
-  "pre-commit>=2.20,<4",
+  "mypy>=0.991,<1.20",
+  "pre-commit>=2.20,<5",
   "pytest>=7.4.3,<9",
-  "pytest-cov>=4.1,<6",
+  "pytest-cov>=4.1,<8",
   "taskipy>=1.10.3,<2",
 ]
 docs = [ "pdoc" ]
