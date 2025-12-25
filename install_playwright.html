@@ -76,8 +76,8 @@ install_playwright    </h1>
 <pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">playwright.sync_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">sync_playwright</span>
 
 <span class="k">with</span> <span class="n">sync_playwright</span><span class="p">()</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
-    <span class="n">install</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">chrome</span><span class="p">)</span>
-    <span class="n">browser</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">chrome</span><span class="o">.</span><span class="n">launch</span><span class="p">()</span>
+    <span class="n">install</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">chromium</span><span class="p">)</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">chromium</span><span class="o">.</span><span class="n">launch</span><span class="p">()</span>
     <span class="c1"># ...</span>
 </code></pre>
 </div>
@@ -88,8 +88,8 @@ install_playwright    </h1>
 
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">async_playwright</span><span class="p">()</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
-        <span class="n">install</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">chrome</span><span class="p">)</span>
-        <span class="n">browser</span> <span class="o">=</span> <span class="k">await</span> <span class="n">p</span><span class="o">.</span><span class="n">chrome</span><span class="o">.</span><span class="n">launch</span><span class="p">()</span>
+        <span class="n">install</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">chromium</span><span class="p">)</span>
+        <span class="n">browser</span> <span class="o">=</span> <span class="k">await</span> <span class="n">p</span><span class="o">.</span><span class="n">chromium</span><span class="o">.</span><span class="n">launch</span><span class="p">()</span>
         <span class="c1"># ...</span>
 </code></pre>
 </div>
