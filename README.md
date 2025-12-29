@@ -4,22 +4,10 @@
   <https://badge.fury.io/py/install-playwright.svg>
   )](
   <https://badge.fury.io/py/install-playwright>
-) [![Maintainability](
-  <https://qlty.sh/badges/5fcd7b4f-782d-4b27-99ef-4f5c6eae678b/maintainability.svg>
+) [![CI](
+  <https://github.com/eggplants/install-playwright-python/actions/workflows/ci.yml/badge.svg>
   )](
-  <https://qlty.sh/gh/eggplants/projects/install-playwright-python>
-) [![pre-commit.ci status](
-  <https://results.pre-commit.ci/badge/github/eggplants/install-playwright-python/master.svg>
-  )](
-  <https://results.pre-commit.ci/latest/github/eggplants/install-playwright-python/master>
-) [![Maintainability](
-  <https://qlty.sh/badges/5fcd7b4f-782d-4b27-99ef-4f5c6eae678b/maintainability.svg>
-  )](
-  <https://qlty.sh/gh/eggplants/projects/install-playwright-python>
-) [![Test](
-  <https://github.com/eggplants/install-playwright-python/actions/workflows/test.yml/badge.svg>
-  )](
-  <https://github.com/eggplants/install-playwright-python/actions/workflows/test.yml>
+  <https://github.com/eggplants/install-playwright-python/actions/workflows/ci.yml>
 )
 
 Execute [`playwright install`](https://playwright.dev/python/docs/cli) from Python.
