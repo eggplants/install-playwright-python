@@ -26,12 +26,14 @@ def install(
     browser_type: SyncBrowserType | AsyncBrowserType,
     *,
     with_deps: bool = False,
+    only_shell: bool = False,
 ) -> bool:
     """Install playwright and deps if needed.
 
     Args:
         browser_type (SyncBrowserType | AsyncBrowserType): `BrowserType` object. Example: `p.chrome`
         with_deps (bool, optional): install with dependencies. Defaults to `False`.
+        only_shell (bool, optional): install only browser shell. Defaults to `False`.
 
     Returns:
         bool: succeeded or failed
@@ -41,6 +43,9 @@ def install(
 
     if with_deps:
         args.append("--with-deps")
+
+    if only_shell:
+        args.append("--only-shell")
 
     proc = subprocess.run(  # noqa: S603
         args,

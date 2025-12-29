@@ -31,3 +31,10 @@ async def test_install_async_with_deps() -> None:
     async with async_playwright() as p:
         res = install(p.chromium, with_deps=True)
         assert res is True
+
+
+@pytest.mark.asyncio
+async def test_install_async_only_shell() -> None:
+    async with async_playwright() as p:
+        res = install(p.chromium, only_shell=True)
+        assert res is True
