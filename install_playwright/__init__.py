@@ -20,7 +20,7 @@ except importlib.metadata.PackageNotFoundError:
 
 
 def install(
-    browser_type: SyncBrowserType | AsyncBrowserType,
+    browser_types: list[SyncBrowserType] | list[AsyncBrowserType],
     *,
     with_deps: bool = False,
     only_shell: bool = False,
@@ -28,7 +28,7 @@ def install(
     """Install playwright and deps if needed.
 
     Args:
-        browser_type (SyncBrowserType | AsyncBrowserType): `BrowserType` object. Example: `p.chrome`
+        browser_types (list[SyncBrowserType] | list[AsyncBrowserType]): List of `BrowserType` objects.
         with_deps (bool, optional): install with dependencies. Defaults to `False`.
         only_shell (bool, optional): install only browser shell. Defaults to `False`.
 
@@ -36,7 +36,7 @@ def install(
         bool: succeeded or failed
     """
     driver_executable, driver_cli = compute_driver_executable()
-    args = [driver_executable, driver_cli, "install", browser_type.name]
+    args: list[str] = [driver_executable, driver_cli, "install"] + [bt.name for bt in browser_types]
 
     if with_deps:
         args.append("--with-deps")
