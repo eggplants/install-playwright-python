@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import importlib.metadata
 import subprocess
+from os import EX_OK
 from typing import TYPE_CHECKING
 
 from playwright._impl._driver import compute_driver_executable, get_driver_env
@@ -49,4 +50,4 @@ def install(
         check=False,
     )
 
-    return proc.returncode == 0
+    return proc.returncode == EX_OK
