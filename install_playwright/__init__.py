@@ -19,9 +19,6 @@ except importlib.metadata.PackageNotFoundError:
     __version__ = "0.0.0"
 
 
-__all__ = ["install"]
-
-
 def install(
     browser_type: SyncBrowserType | AsyncBrowserType,
     *,
@@ -56,3 +53,35 @@ def install(
     )
 
     return proc.returncode == EX_OK
+
+
+def uninstall(
+    *,
+    all_browsers: bool = False,
+) -> bool:
+    """Uninstall playwright browsers.
+
+    Args:
+        all_browsers (bool, optional): uninstall all browsers. Defaults to `False`.
+
+    Returns:
+        bool: succeeded or failed
+    """
+    driver_executable, driver_cli = compute_driver_executable()
+    args = [driver_executable, driver_cli, "uninstall"]
+
+    if all_browsers:
+        args.append("--all")
+
+    proc = subprocess.run(  # noqa: S603
+        args,
+        env=get_driver_env(),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    return proc.returncode == EX_OK
+
+
+__all__ = ("install", "uninstall")

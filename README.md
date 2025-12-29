@@ -12,6 +12,14 @@
 
 Execute [`playwright install`](https://playwright.dev/python/docs/cli) from Python.
 
+## Install
+
+```bash
+pip install install-playwright
+```
+
+## Example
+
 ```python
 from install_playwright import install
 ```
@@ -34,12 +42,6 @@ async def main():
         install(p.chromium)
         browser = await p.chromium.launch()
         # ...
-```
-
-## Install
-
-```bash
-pip install install-playwright
 ```
 
 ## License
