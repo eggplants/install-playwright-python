@@ -40,6 +40,27 @@ async def test_install_async_only_shell() -> None:
         assert res is True
 
 
+@pytest.mark.asyncio
+async def test_install_async_no_shell() -> None:
+    async with async_playwright() as p:
+        res = install([p.chromium], no_shell=True)
+        assert res is True
+
+
+@pytest.mark.asyncio
+async def test_install_async_force() -> None:
+    async with async_playwright() as p:
+        res = install([p.chromium], force=True)
+        assert res is True
+
+
+@pytest.mark.asyncio
+async def test_install_async_only_shell_no_shell_error() -> None:
+    async with async_playwright() as p:
+        with pytest.raises(ValueError, match="`only_shell` and `no_shell` cannot be both `True`"):
+            install([p.chromium], only_shell=True, no_shell=True)
+
+
 def test_uninstall() -> None:
     res = uninstall()
     assert res is True

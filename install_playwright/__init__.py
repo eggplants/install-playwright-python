@@ -24,6 +24,8 @@ def install(
     *,
     with_deps: bool = False,
     only_shell: bool = False,
+    no_shell: bool = False,
+    force: bool = False,
 ) -> bool:
     """Install playwright and deps if needed.
 
@@ -31,6 +33,8 @@ def install(
         browser_types (list[SyncBrowserType] | list[AsyncBrowserType]): List of `BrowserType` objects.
         with_deps (bool, optional): install with dependencies. Defaults to `False`.
         only_shell (bool, optional): install only browser shell. Defaults to `False`.
+        no_shell (bool, optional): do not install browser shell. Defaults to `False`.
+        force (bool, optional): force re-installation. Defaults to `False`.
 
     Returns:
         bool: succeeded or failed
@@ -41,8 +45,18 @@ def install(
     if with_deps:
         args.append("--with-deps")
 
+    if only_shell and no_shell:
+        msg = "`only_shell` and `no_shell` cannot be both `True`"
+        raise ValueError(msg)
+
     if only_shell:
         args.append("--only-shell")
+
+    if no_shell:
+        args.append("--no-shell")
+
+    if force:
+        args.append("--force")
 
     proc = subprocess.run(  # noqa: S603
         args,
