@@ -66,6 +66,7 @@ def test_uninstall() -> None:
     assert res is True
 
 
+@pytest.mark.asyncio
 async def test_uninstall_all() -> None:
     res = uninstall(all_browsers=True)
     assert res is True
