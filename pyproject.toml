@@ -43,9 +43,9 @@ docs = [
 ]
 
 [tool.hatch]
-build.targets.sdist.include = [ "install_playwright" ]
-build.targets.wheel.include = [ "install_playwright" ]
 version.source = "uv-dynamic-versioning"
+build.targets.wheel.include = [ "install_playwright" ]
+build.targets.sdist.include = [ "install_playwright" ]
 
 [tool.uv]
 python-downloads = "never"
