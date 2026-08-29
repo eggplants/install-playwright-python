@@ -4,7 +4,7 @@ import pytest
 from playwright.async_api import async_playwright
 from playwright.sync_api import sync_playwright
 
-from install_playwright import install, uninstall
+from install_playwright import install, is_installed, uninstall
 
 
 def test_install_sync() -> None:
@@ -59,6 +59,23 @@ async def test_install_async_only_shell_no_shell_error() -> None:
     async with async_playwright() as p:
         with pytest.raises(ValueError, match="`only_shell` and `no_shell` cannot be both `True`"):
             install([p.chromium], only_shell=True, no_shell=True)
+
+
+def test_is_installed_sync() -> None:
+    with sync_playwright() as p:
+        install([p.chromium])
+        assert is_installed([p.chromium]) is True
+
+
+@pytest.mark.asyncio
+async def test_is_installed_async() -> None:
+    async with async_playwright() as p:
+        install([p.chromium])
+        assert is_installed([p.chromium]) is True
+
+
+def test_is_installed_empty() -> None:
+    assert is_installed([]) is True
 
 
 def test_uninstall() -> None:

@@ -5,6 +5,7 @@ from __future__ import annotations
 import importlib.metadata
 import subprocess
 from os import EX_OK
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 from playwright._impl._driver import compute_driver_executable, get_driver_env
@@ -17,6 +18,20 @@ try:
     __version__ = importlib.metadata.version(__name__)
 except importlib.metadata.PackageNotFoundError:
     __version__ = "0.0.0"
+
+
+def is_installed(
+    browser_types: list[SyncBrowserType] | list[AsyncBrowserType],
+) -> bool:
+    """Check whether the browsers are already downloaded locally.
+
+    Args:
+        browser_types (list[SyncBrowserType] | list[AsyncBrowserType]): List of `BrowserType` objects.
+
+    Returns:
+        bool: `True` if every given browser is already installed
+    """
+    return all(bool(bt.executable_path) and Path(bt.executable_path).exists() for bt in browser_types)
 
 
 def install(
@@ -98,4 +113,4 @@ def uninstall(
     return proc.returncode == EX_OK
 
 
-__all__ = ("install", "uninstall")
+__all__ = ("install", "is_installed", "uninstall")

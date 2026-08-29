@@ -44,6 +44,17 @@ async def main():
         # ...
 ```
 
+Skip the install when the browser is already downloaded:
+
+```python
+from install_playwright import install, is_installed
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    if not is_installed([p.chromium]):
+        install([p.chromium])
+```
+
 ## License
 
 MIT
