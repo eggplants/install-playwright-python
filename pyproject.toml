@@ -7,15 +7,23 @@ name = "install-playwright"
 description = "Execute `playwright install` from Python"
 readme = "README.md"
 keywords = [
+  "automation",
   "browser",
+  "chromium",
+  "firefox",
   "install",
   "playwright",
+  "playwright-python",
+  "webkit",
 ]
 license = "MIT"
 authors = [ { name = "eggplants", email = "w10776e8w@yahoo.co.jp" } ]
 requires-python = ">=3.10,<4"
 classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.10",
@@ -24,10 +32,15 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
   "Programming Language :: Python :: Implementation :: CPython",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Software Development :: Testing",
+  "Topic :: Utilities",
   "Typing :: Typed",
 ]
 dynamic = [ "version" ]
 dependencies = [ "playwright>=1.49.1,<2" ]
+urls.Documentation = "https://egpl.dev/install-playwright-python/"
+urls.Issues = "https://github.com/eggplants/install-playwright-python/issues"
 urls.Repository = "https://github.com/eggplants/install-playwright-python"
 
 [dependency-groups]
